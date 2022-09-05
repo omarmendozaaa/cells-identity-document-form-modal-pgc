@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>cells-identity-document-form-modal-pgc demo</title>
+    <script src="../build/webcomponents-loader.js"></script>
+    <script src="../build/scoping-ambients-shim.min.js"></script>
+    <script src="../build/custom-style-interface.min.js"></script>
+    <script>
+      {
+        const _customElementsDefine = window.customElements.define;
+        window.customElements.define = (name, cl, conf) => {
+          if (customElements.get(name)) {
+            console.warn(`${name} has been defined twice`);
+          } else {
+            _customElementsDefine.call(window.customElements, name, cl, conf);
+          }
+        };
+      }
+    </script>
+    <script defer src="../build/component.js"></script>
+    <script type="module" crossorigin="use-credentials">
+      import '../build/demo-build.js';
+    </script>
+  </head>
+
+  <body>
+    <bbva-core-demo-helper events='["accept-clicked","close-clicked"'>
+      <bbva-core-demo-case heading="Basic" description="Default specs">
+        <template>
+          <bbva-web-button-default class="btnModal">Open</bbva-web-button-default>
+          <cells-identity-document-form-modal-pgc id="demo"></cells-identity-document-form-modal-pgc>
+          <script>
+            const btn = document.querySelector('.btnModal');
+            const demo = document.querySelector('#demo')
+            document.addEventListener('WebComponentsReady', async() => {
+              const data = await fetch('./data/data.json').then(response => response.json())
+              demo.init(data)
+            })
+            btn.addEventListener('click', () => {
+              demo.open();
+            });
+          </script>
+        </template>
+      </bbva-core-demo-case>
+    </bbva-core-demo-helper>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+export { CellsIdentityDocumentFormModalPgc } from './src/CellsIdentityDocumentFormModalPgc.js';

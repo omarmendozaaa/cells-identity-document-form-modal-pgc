@@ -1,0 +1,20 @@
+{
+  "title": "Llamada entrante",
+  "subtitle": "Indentifique al cliente",
+  "documentTypeLabel": "Tipo documento",
+  "documentNumberLabel": "Número documento",
+  "closeable": false,
+  "listDocumentsType": [
+    {
+      "id": 1,
+      "type": "DNI",
+      "description": "Documento Nacional de Identidad"
+    },
+    {
+      "id": 2,
+      "type": "CE",
+      "description": "Carnet de Extrangería"
+    }
+  ],
+  "buttonLabel": "Abrir ficha"
+}
