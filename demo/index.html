@@ -26,10 +26,10 @@
   </head>
 
   <body>
-    <bbva-core-demo-helper events='["accept-clicked","close-clicked"'>
+    <bbva-core-demo-helper events='["accept-clicked","close-clicked"]'>
       <bbva-core-demo-case heading="Basic" description="Default specs">
         <template>
-          <bbva-web-button-default class="btnModal">Open</bbva-web-button-default>
+          <!-- <bbva-web-button-default class="btnModal">Open</bbva-web-button-default> -->
           <cells-identity-document-form-modal-pgc id="demo"></cells-identity-document-form-modal-pgc>
           <script>
             const btn = document.querySelector('.btnModal');
@@ -38,9 +38,9 @@
               const data = await fetch('./data/data.json').then(response => response.json())
               demo.init(data)
             })
-            btn.addEventListener('click', () => {
-              demo.open();
-            });
+            // btn.addEventListener('click', () => {
+            //   demo.open();
+            // });
           </script>
         </template>
       </bbva-core-demo-case>

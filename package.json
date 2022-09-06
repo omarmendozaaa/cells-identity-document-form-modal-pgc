@@ -12,7 +12,6 @@
   ],
   "dependencies": {
     "@bbva-web-components/bbva-core-lit-helpers": "^1.0.4",
-    "@bbva-web-components/bbva-foundations-grid-default-layout": "^1.0.1",
     "@bbva-web-components/bbva-foundations-styles": "^2.3.5",
     "@bbva-web-components/bbva-web-button-default": "^1.5.0",
     "@bbva-web-components/bbva-web-form-select": "^1.1.2",
