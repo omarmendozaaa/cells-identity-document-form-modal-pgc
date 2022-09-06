@@ -5,12 +5,7 @@ import '@bbva-web-components/bbva-web-button-default/bbva-web-button-default.js'
 import '@bbva-web-components/bbva-web-form-select/bbva-web-form-select.js';
 import '@bbva-web-components/bbva-web-form-select/bbva-web-form-option.js';
 import '@bbva-web-components/bbva-web-form-text/bbva-web-form-text.js';
-import { bbvaClose } from '@bbva-web-components/bbva-foundations-icons';
-import { BbvaCoreModal } from '@bbva-web-components/bbva-core-modal';
-import { BbvaCoreSlotsContentMixin } from '@bbva-web-components/bbva-core-slots-content-mixin';
-import { BbvaCoreFocusVisibleMixin } from '@bbva-web-components/bbva-core-focus-visible-mixin';
-import { BbvaCoreIntlMixin } from '@bbva-web-components/bbva-core-intl-mixin';
-import { BbvaCoreResizeObservableElementMixin } from '@bbva-web-components/bbva-core-resize-observable-element-mixin';
+import '@bbva-web-components/bbva-web-template-modal/bbva-web-template-modal.js'
 
 import styles from './CellsIdentityDocumentFormModalPgc-styles.js';
 /**
@@ -28,8 +23,6 @@ Example:
 
 @customElement cells-identity-document-form-modal-pgc
 */
-const iconClose = bbvaClose();
-
 export class CellsIdentityDocumentFormModalPgc extends LitElement {
   static get is() {
     return 'cells-identity-document-form-modal-pgc';
@@ -56,7 +49,6 @@ export class CellsIdentityDocumentFormModalPgc extends LitElement {
   // Initialize properties
   constructor() {
     super();
-    this.closeIcon = iconClose;
     this.title = '';
     this.subtitle = '';
     this.documentTypeLabel = '';
@@ -86,10 +78,12 @@ export class CellsIdentityDocumentFormModalPgc extends LitElement {
     this._documentNumber = '';
   }
   open() {
-    this.open();
+    const modal = this.shadowRoot.querySelector('#modalContent');
+    modal.open();
   }
   close() {
-    this.close();
+    const modal = document.querySelector('#modalContent');
+    modal.closest();
   }
   reset() {
     this.title = '';
@@ -139,15 +133,12 @@ export class CellsIdentityDocumentFormModalPgc extends LitElement {
   // Define a template
   render() {
     return html`
-      <div class="modal">
+    <bbva-web-template-modal id="modalContent" size="m">
         <div class="modal-header">
           <label class="title">${this.title}</label>
-          <button type="button" class="close-btn" @click="${this._closeClicked}">
-            <bbva-core-icon class="close-icon" .icon="${this.closeIcon}"></bbva-core-icon>
-          </button>
         </div>
         <div class="modal-content">
-          <label class="subtitle">${this.subtitle}</label>
+          <label>${this.subtitle}</label>
           <div class="form-group">
             <label> ${this.documentTypeLabel}:</label>
             <bbva-web-form-select class="lg-6">
@@ -166,7 +157,7 @@ export class CellsIdentityDocumentFormModalPgc extends LitElement {
         <div class="modal-footer">
           <bbva-web-button-default @click=${this._acceptClicked}>${this.buttonLabel}</bbva-web-button-default>
         </div>
-      </div>
+      </bbva-web-template-modal>
     `;
   }
 }
