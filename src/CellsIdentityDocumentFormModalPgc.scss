@@ -13,9 +13,6 @@
 *, *:before, *:after {
   box-sizing: inherit;
 }
-.modal {
-  background-color: red;
-}
 
 .modal-header{
   display: flex;
@@ -35,6 +32,7 @@
   background-color: #F0F8FF;
   margin: 10px;
   padding: 10px;
+  min-height: 200px;
 }
 .modal-footer{
   padding: 10px;

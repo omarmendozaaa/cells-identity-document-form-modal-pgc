@@ -16,10 +16,6 @@ export default css`:host {
   box-sizing: inherit;
 }
 
-.modal {
-  background-color: red;
-}
-
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -38,6 +34,7 @@ export default css`:host {
   background-color: #F0F8FF;
   margin: 10px;
   padding: 10px;
+  min-height: 200px;
 }
 
 .modal-footer {
